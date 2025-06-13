@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentación Cartera de Cobranza</title>
+  <!-- Google Fonts for modern typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Barra de navegación superior con controles y progreso -->
+  <header class="navbar">
+    <button id="prev" aria-label="Anterior" class="nav-btn">◀</button>
+    <div class="progress-bar"><div id="progress"></div></div>
+    <button id="next" aria-label="Siguiente" class="nav-btn">▶</button>
+  </header>
+
+  <main>
+    <!-- Slide 1: Balance de Cartera -->
+    <section class="slide" id="slide1" style="background-image:url('img/saldos-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="content center">
+        <h1>Balance de Cartera al 30/06/2025</h1>
+        <p class="kpi">Total Cartera: <span class="highlight">$X.XXX M</span></p>
+        <a href="https://app.powerbi.com/view?r=SALDOS" target="_blank" class="btn primary">Ver Detalle</a>
+      </div>
+    </section>
+
+    <!-- Slide 2: Embudo de Gestión -->
+    <section class="slide" id="slide2" style="background-image:url('img/embudo-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="content center">
+        <h1>Embudo de Gestión</h1>
+        <img src="img/embudo-chart.png" alt="Embudo de Cobranza" class="chart-img">
+        <a href="https://app.powerbi.com/view?r=EMBUDO" target="_blank" class="btn secondary">Interactivo</a>
+      </div>
+    </section>
+
+    <!-- Slide 3: Vigente y Castigada -->
+    <section class="slide" id="slide3">
+      <div class="cards">
+        <div class="card">
+          <h2>Vigente</h2>
+          <img src="img/vigente-chart.png" alt="Informe Vigente" class="card-img">
+          <a href="https://app.powerbi.com/view?r=VIGENTE" target="_blank" class="btn outline">Ver Detalle</a>
+        </div>
+        <div class="card">
+          <h2>Castigada</h2>
+          <img src="img/castigada-chart.png" alt="Informe Castigada" class="card-img">
+          <a href="https://app.powerbi.com/view?r=CASTIGADA" target="_blank" class="btn outline">Ver Detalle</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4: Comparativo -->
+    <section class="slide" id="slide4">
+      <div class="content center">
+        <h1>Comparativo Vigente vs. Castigada</h1>
+        <div class="split">
+          <div class="half">
+            <img src="img/vigente-split.png" alt="Vigente" class="split-img">
+            <p>Cartera Vigente</p>
+          </div>
+          <div class="half">
+            <img src="img/castigada-split.png" alt="Castigada" class="split-img">
+            <p>Cartera Castigada</p>
+          </div>
+        </div>
+        <a href="https://app.powerbi.com/view?r=COMPARATIVO" target="_blank" class="btn sticky">Abrir Dashboard</a>
+      </div>
+    </section>
+
+    <!-- Slide 5: Tendencias Históricas -->
+    <section class="slide" id="slide5">
+      <div class="content center">
+        <h1>Tendencias Históricas</h1>
+        <div class="chart-full">
+          <img src="img/historico-chart.png" alt="Histórico Indicadores" class="chart-img">
+        </div>
+        <div class="slider-container">
+          <input type="range" id="timeSlider" min="1" max="12" value="12">
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Script principal -->
+  <script src="app.js"></script>
+</body>
+</html>

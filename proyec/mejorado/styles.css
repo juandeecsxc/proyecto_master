@@ -1,0 +1,240 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* =========================
+  Root Variables & Theme
+  ========================= */
+:root {
+  --primary: #1F3A93;
+  --accent: #E67E22;
+  --light-bg: #F9FAFB;
+  --dark-overlay: rgba(0,0,0,0.5);
+  --text-light: #FFF;
+  --text-dark: #1F2937;
+  --font: 'Inter', sans-serif;
+  --white: #FFF;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 8px;
+}
+
+/* =========================
+  Global Reset & Base Styles
+  ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--font);
+  background: var(--light-bg);
+  color: var(--text-dark);
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+/* =========================
+  Navigation Bar
+  ========================= */
+.nav {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 60px;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  box-shadow: var(--shadow);
+}
+.nav button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--primary);
+  cursor: pointer;
+  transition: color .2s;
+}
+.nav button:hover {
+  color: var(--accent);
+}
+
+/* =========================
+  Progress Bar
+  ========================= */
+.progress-bar {
+  flex: 1;
+  height: 4px;
+  background: #e5e7eb;
+  margin: 0 1rem;
+  border-radius: 2px;
+  overflow: hidden;
+}
+#progress {
+  width: 0;
+  height: 100%;
+  background: var(--accent);
+  transition: width .4s cubic-bezier(.4,0,.2,1);
+}
+
+/* =========================
+  Main & Slide Layout
+  ========================= */
+main {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.slide {
+  position: absolute;
+  width: 100%; height: 100%;
+  top: 0; left: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--white);
+  transition: left .6s cubic-bezier(.4,0,.2,1);
+}
+.slide#slide1 { left: 0; }
+.slide.full {
+  background-size: cover;
+  background-position: center;
+}
+
+/* =========================
+  Overlay for Slides
+  ========================= */
+.overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  background: var(--dark-overlay);
+  z-index: 1;
+}
+
+/* =========================
+  Slide Content
+  ========================= */
+.content {
+  position: relative;
+  text-align: center;
+  color: var(--text-light);
+  z-index: 2;
+}
+.content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.kpi {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* =========================
+  Buttons
+  ========================= */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--accent);
+  color: var(--text-light);
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(230,126,34,0.08);
+  transition: background .2s;
+}
+.btn:hover, .btn:focus {
+  background: #cf711f;
+}
+.btn.sticky {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+}
+.btn.inline {
+  margin-left: 1rem;
+}
+
+/* =========================
+  Chart & Card Styles
+  ========================= */
+.chart-container img,
+.chart-full img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.cards {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  flex: 1 1 220px;
+  min-width: 200px;
+}
+
+/* =========================
+  Split Layout
+  ========================= */
+.split {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+.half {
+  flex: 1;
+  text-align: center;
+}
+
+/* =========================
+  Slider Controls
+  ========================= */
+.slider-container {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  z-index: 10;
+}
+#timeSlider {
+  width: 100%;
+  accent-color: var(--primary);
+  height: 4px;
+  border-radius: 2px;
+}
+
+/* =========================
+  Responsive Design
+  ========================= */
+@media (max-width: 900px) {
+  .cards, .split {
+   flex-direction: column;
+   gap: 1.2rem;
+  }
+  .slide, .main {
+   padding: 1rem;
+  }
+  .content h1 {
+   font-size: 2rem;
+  }
+}
