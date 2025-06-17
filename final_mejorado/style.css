@@ -1,0 +1,143 @@
+.menu {
+  width: 220px; /* ejemplo */
+  float: left;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* define separación exacta entre título e imagen */
+}
+
+
+.img-box {
+  max-width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+body {
+  display: flex;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: #f7f7f7;
+}
+
+.sidebar {
+  width: 260px;
+  background-color: #ed1c29;
+  color: white;
+  height: 100vh;
+  padding: 1rem;
+  position: fixed;
+  overflow-y: auto;
+}
+
+.sidebar h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.sidebar ul li a.active,
+.sidebar ul li a:hover {
+  background-color: #fca311;
+  color: black;
+}
+
+.submenu {
+  display: none;
+  margin-left: 1rem;
+}
+
+.main {
+  margin-left: 260px;
+  padding: 1rem;
+  flex: 1;
+}
+
+
+h4 {
+  font-size: 1.1rem;
+  color: #ed1c29;
+  border-bottom: 2px solid #ed1c29;
+  padding-bottom: 0.5rem;
+}
+
+
+.img-box img {
+  width: 100%;
+  max-width: 100%; /* nunca sobrepasa su contenedor */
+  height: auto;
+  border-radius: 6px;
+  display: block; /* elimina espacios extra */
+  object-fit: contain; /* asegura que la imagen no se deforme ni desborde */
+}
+
+
+.img-box button {
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  background-color: #ed1c29;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.resumen textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  resize: vertical;
+}
+
+#overlay {
+  position: fixed;
+  display: none;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#overlay img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+#overlay .close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Metadatos básicos para codificación y responsive design -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Informe Ejecutivo - Junta</title>
+  <!-- Enlace a la hoja de estilos externa -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Barra lateral de navegación principal -->
+  <div class="sidebar">
+    <h2>Dashboard</h2>
+    <ul id="nav-menu">
+      <!-- Enlaces de navegación con submenús desplegables -->
+      <li><a href="#saldos" class="nav-link">1. Saldos</a></li>
+      <li>
+        <a href="#embudo" class="nav-link" onclick="toggleSubmenu('submenu2')">2. Embudo</a>
+        <ul id="submenu2" class="submenu">
+          <li><a href="#embudo-vermas" class="nav-link">2.1 Ver más</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#canales" class="nav-link" onclick="toggleSubmenu('submenu3')">3. Canales</a>
+        <ul id="submenu3" class="submenu">
+          <li><a href="#canales-vermas" class="nav-link">3.1 Ver más</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#palancas" class="nav-link" onclick="toggleSubmenu('submenu4')">4. tácticos</a>
+        <ul id="submenu4" class="submenu">
+          <li><a href="#palancas-vermas" class="nav-link">4.1 Ver más</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#vigente" class="nav-link" onclick="toggleSubmenu('submenu5')">5. Cartera Vigente</a>
+        <ul id="submenu5" class="submenu">
+          <li><a href="#vigente-vermas" class="nav-link">5.1 Ver más</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#castigada" class="nav-link" onclick="toggleSubmenu('submenu6')">6. Cartera Castigada</a>
+        <ul id="submenu6" class="submenu">
+          <li><a href="#castigada-vermas" class="nav-link">6.1 Ver más</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Contenido principal del dashboard -->
+  <div class="main">
+    <!-- Sección de Saldos -->
+    <section id="saldos">
+      <h4>1. Saldos</h4>
+      <div class="img-box">
+        <!-- Imagen con funcionalidad de expansión -->
+        <img src="static/img/01_saldos.png" alt="Saldos" onclick="expandImage(this)">
+        <!-- Botón para mostrar/ocultar resumen -->
+        <button onclick="toggleResumen('resumen1')">Resumen</button>
+        <!-- Botón para abrir detalles en Power BI -->
+        <button onclick="window.open('https://app.powerbi.com/view?r=SALDOS_ID', '_blank')">Ver detalles</button>
+        <!-- Resumen editable en textarea, inicialmente oculto -->
+        <div class="resumen" id="resumen1">
+          <textarea>Saldos actualizados al día de hoy...</textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Embudo -->
+    <section id="embudo">
+      <h4>2. Embudo</h4>
+      <div class="img-box">
+        <img src="static/img/02_embudo.png" alt="Embudo" onclick="expandImage(this)">
+        <button onclick="toggleResumen('resumen2')">Resumen</button>
+        <button onclick="window.open('https://app.powerbi.com/view?r=EMBUDO_ID', '_blank')">Ver detalles</button>
+        <div class="resumen" id="resumen2">
+          <textarea>Flujo de embudo actualizado...</textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sub-sección de Embudo: Ver más -->
+    <section id="embudo-vermas">
+      <h4>2.1 Ver más - Embudo</h4>
+      <div class="img-box">
+        <img src="static/img/02_embudo_mas.png" alt="Embudo Más" onclick="expandImage(this)">
+        <button onclick="toggleResumen('resumen2-1')">Resumen</button>
+        <button onclick="window.open('https://app.powerbi.com/view?r=EMBUDO_MAS_ID', '_blank')">Ver detalles</button>
+        <div class="resumen" id="resumen2-1">
+          <textarea>Detalles adicionales del embudo...</textarea>
+        </div>
+      </div>
+    </section>
+    <!-- Sección de Canales -->
+    <section id="canales">
+      <h4>3. Canales</h4>
+      <div class="img-box">
+        <img src="static/img/03_canale.png" alt="Canales" onclick="expandImage(this)">
+        <button onclick="toggleResumen('resumen3')">Resumen</button>
+        <button onclick="window.open('https://app.powerbi.com/view?r=CANALES_ID', '_blank')">Ver detalles</button>
+        <div class="resumen" id="resumen3">
+          <textarea>Detalles de los canales...</textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sub-sección de Canales: Ver más -->
+    <section id="canales-vermas">
+      <h4>3.1 Ver más - Canales</h4>
+      <div class="img-box">
+        <img src="static/img/03_canales_mas.png" alt="Canales Más" onclick="expandImage(this)">
+        <button onclick="toggleResumen('resumen3-1')">Resumen</button>
+        <button onclick="window.open('https://app.powerbi.com/view?r=CANAL_MAS_ID', '_blank')">Ver detalles</button>
+        <div class="resumen" id="resumen3-1">
+          <textarea>Detalles adicionales de los canales...</textarea>
+        </div>
+      </div>
+    </section>
+    <!-- Sección de Palancas Tácticas -->
+    <section id="palancas">
+      <h4>4. Palancas Tácticas</h4>
+      <div class="img-box">
+        <img src="static/img/04_tactico.png" alt="Palancas Tácticas" onclick="expandImage(this)">
+        <button onclick="toggleResumen('resumen4')">Resumen</button>
+        <button onclick="window.open('https://app.powerbi.com/view?r=PALANCAS_ID', '_blank')">Ver detalles</button>
+        <div class="resumen" id="resumen4">
+          <textarea>Detalles de las palancas tácticas...</textarea>
+        </div>
+      </div>
+    </section>
+    <!-- Sección de Palancas Tácticas: Ver más -->
+    <section id="palancas-vermas">
+      <h4>4.1 Ver más - Palancas Tácticas</h4>
+      <div class="img-box">
+        <img src="static/img/04_tactico_mas.png" alt="Palancas Tácticas Más" onclick="expandImage(this)">
+        <button onclick="toggleResumen('resumen4-1')">Resumen</button>
+        <button onclick="window.open('https://app.powerbi.com/view?r=PALANCAS_MAS_ID', '_blank')">Ver detalles</button>
+        <div class="resumen" id="resumen4-1">
+          <textarea>Detalles adicionales de las palancas tácticas...</textarea>
+        </div>
+      </div>
+    </section>
+    <!-- Sección de Cartera Vigente -->
+      <section id="vigente">
+        <h4>5. Cartera Vigente</h4>
+        <div class="img-box">
+          <img src="static/img/05_cartera_vigente.png" alt="Cartera Vigente" onclick="expandImage(this)">
+          <button onclick="toggleResumen('resumen5')">Resumen</button>
+          <button onclick="window.open('https://app.powerbi.com/view?r=CARTERA_ID', '_blank')">Ver detalles</button>
+          <div class="resumen" id="resumen5">
+            <textarea>Detalles de la cartera vigente...</textarea>
+          </div>
+        </div>
+      </section>
+    <!-- Sección de Cartera Vigente: Ver más -->
+    <section id="vigente-vermas">
+      <h4>5.1 Ver más - Cartera Vigente</h4>
+      <div class="img-box">
+        <img src="static/img/05_cartera_vigente_mas.png" alt="Cartera Vigente Más" onclick="expandImage(this)">
+        <button onclick="toggleResumen('resumen5-1')">Resumen</button>
+        <button onclick="window.open('https://app.powerbi.com/view?r=CARTERA_MAS_ID', '_blank')">Ver detalles</button>
+        <div class="resumen" id="resumen5-1">
+          <textarea>Detalles adicionales de la cartera vigente...</textarea>
+        </div>
+      </div>
+    </section>
+    <!--seccion de cartera castigada-->
+    <section id="castigada">
+      <h4>6. Cartera Castigada</h4>
+      <div class="img-box">
+        <img src="static/img/06_cartera_castigada.png" alt="Cartera Castigada" onclick="expandImage(this)">
+        <button onclick="toggleResumen('resumen6')">Resumen</button>
+        <button onclick="window.open('https://app.powerbi.com/view?r=CASTIGADA_ID', '_blank')">Ver detalles</button>
+        <div class="resumen" id="resumen6">
+          <textarea>Detalles de la cartera castigada...</textarea>
+        </div>
+      </div>
+    </section>
+    <!-- Sección de Cartera Castigada: Ver más -->
+    <section id="castigada-vermas">
+      <h4>6.1 Ver más - Cartera Castigada</h4>
+      <div class="img-box">
+        <img src="static/img/06_cartera_castigada_intensidad.png" alt="Cartera Castigada Más" onclick="expandImage(this)">
+        <button onclick="toggleResumen('resumen6-1')">Resumen</button>
+        <button onclick="window.open('https://app.powerbi.com/view?r=CASTIGADA_MAS_ID', '_blank')">Ver detalles</button>
+        <div class="resumen" id="resumen6-1">
+          <textarea>Detalles adicionales de la cartera castigada...</textarea>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Overlay para mostrar imágenes en tamaño completo -->
+  <div id="overlay" onclick="closeImage()">
+    <span class="close">&times;</span>
+    <img id="overlay-img">
+  </div>
+  <!-- Inclusión del archivo JavaScript para interactividad -->
+  <script src="script.js"></script>
+</body>
+</html>
