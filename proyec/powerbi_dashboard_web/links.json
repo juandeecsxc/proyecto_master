@@ -1,12 +1,12 @@
 [
   {
     "title": "Informe Ventas 2024",
-    "img": "ventas2024.png",
+    "img": "../ia/img/general_1.png",
     "url": "https://app.powerbi.com/view?r=example1"
   },
   {
     "title": "Informe Cobranzas Q2",
-    "img": "cobranzas_q2.png",
+    "img": "../ia/img/general_embudo.png",
     "url": "https://app.powerbi.com/view?r=example2"
   }
 ]
